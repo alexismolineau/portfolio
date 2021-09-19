@@ -1,0 +1,29 @@
+ul.projets-pagination{
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.projets-pagination-item.active a{
+    color: var(--text-light);
+    background-color: var(--title-dark);
+
+}
+
+.projets-pagination-item a{
+    font-weight: bold;
+    border-radius: 0.4rem;
+    background-color: var(--text-light);
+    border: 1px solid var(--title-dark);
+    text-decoration: none;
+    padding:  0.5rem 1rem;
+    color: var(--title-dark);
+}
+
+.projets-pagination-item a:hover{
+    background-color: var(--title-dark);
+    color: var(--text-light);
+    transition: all 0.3s ease-out;
+}

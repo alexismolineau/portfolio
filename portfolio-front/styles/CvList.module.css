@@ -1,0 +1,123 @@
+ul.cv-list{
+    margin-left: 10rem;
+    padding: 0 2rem 1rem 2rem;
+    border-radius: 0.4rem;
+    background-color: rgba(255,255,255, 0.8);
+    box-shadow: 0 0.3rem 0.6rem rgb(0 0 0 / 20%);
+    max-width: 90%;
+    align-self: flex-end;
+}
+
+.cv-list-item{
+    position: relative;
+    text-align: left;
+    margin-bottom: 8rem;
+}
+
+.cv-list-item:last-child{
+    margin-bottom: 2rem;
+}
+
+.cv-list-item::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 90%;
+    left: 50%;
+    top: 115%;
+    transform: translateX(-50%);
+    background-color: var(--title);
+}
+
+.cv-list-item:last-child::after{
+    content: none;
+}
+
+.cv-list-item h3{
+    position: relative;
+    text-align: left;
+    margin-left: -6rem;
+    display: inline-block;
+    width: auto;
+    color: var(--text-light);
+    background-color: var(--extras-dark);
+    padding: 1rem 2rem;
+    z-index: 100;
+    transform: translateY(-50%);
+    box-shadow: 5px 0 3rem 6px rgb(0 0 0 / 20%);
+}
+
+
+.cv-list-item h3::after {
+    z-index: 101;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-99%);
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid var(--extras-dark);
+    border-bottom: 24px solid var(--extras-dark);
+    border-top: 24px solid var(--extras-dark);
+}
+
+.cv-list-content{
+    margin-top: -1rem;
+}
+
+.cv-top{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.cv-date{
+    font-style: italic;
+}
+
+.cv-entreprise{
+    color: var(--title-dark);
+    display: flex;
+    align-items: center;
+}
+
+.cv-entreprise svg{
+    font-size: 2.4rem;
+    margin-right: 0.5rem
+}
+
+
+@media screen and (max-width: 630px) {
+    .cv-list-item h3 {
+        margin-left: -4rem;
+    }
+
+
+    .cv-list-item h3::after {
+        content: none;
+    }
+
+    ul.cv-list {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .cv-list-item h3{
+        font-size: 1.6rem;
+        margin-left: 0;
+        text-align: center;
+    }
+    .cv-top{
+        flex-direction: column;
+    }
+    .cv-date{
+        margin-bottom: 1rem;
+    }
+}

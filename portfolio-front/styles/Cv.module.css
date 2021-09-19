@@ -1,0 +1,86 @@
+section.cv-title {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/projets.jpg');
+}
+
+section.cv-content h2 {
+    margin-top: 3rem;
+}
+
+div.cv-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+}
+
+
+.competences{
+    display: grid;
+    grid-template-areas:
+      "a b"
+      "a b";
+    border-radius: 0.4rem;
+    column-gap: 4rem;
+}
+
+.competences h2{
+    grid-column: 1/3;
+}
+
+.competences .front{
+    grid-column: 1;
+}
+
+.competences .back{
+    grid-column: 2;
+}
+
+.competences h3 {
+    font-size: 3rem;
+}
+
+
+.competences ul{
+    justify-content: center;
+    padding: 2rem 1rem 1rem 1rem;
+    border-radius: 0.4rem;
+    background-color: rgba(255,255,255, 0.8);
+    box-shadow: 0 0.3rem 0.6rem rgb(0 0 0 / 20%);
+}
+
+.competences h3 {
+    margin-bottom: 2rem;
+}
+
+.experiences{
+    border-radius: 0.4rem;
+    text-align: left;
+}
+
+.formations{
+    border-radius: 0.4rem;
+    text-align: left;
+}
+
+
+
+@media screen and (max-width: 1240px) {
+    div.cv-container{
+        grid-template-columns: 1fr;
+    }
+
+    .competences{
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+
+    .competences .front{
+        grid-column: 1;
+        margin-bottom: 2rem;
+    }
+
+    .competences .back{
+        grid-column: 1;
+        margin-bottom: 2rem;
+    }
+
+}
