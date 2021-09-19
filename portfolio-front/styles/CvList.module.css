@@ -81,12 +81,14 @@ ul.cv-list{
 }
 
 .cv-entreprise{
+    position: relative;
     color: var(--title-dark);
     display: flex;
     align-items: center;
+    width: 100px;
 }
 
-.cv-entreprise svg{
+.cv-entreprise > *{
     font-size: 2.4rem;
     margin-right: 0.5rem
 }

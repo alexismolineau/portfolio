@@ -1,9 +1,28 @@
 import styles from '../styles/Home.module.css';
 import Card from "../components/Card";
 import Link from "next/link";
-
+import ProjetsApi from "../utils/api/projetsApi";
+import {useEffect, useState} from "react";
 
 export default function Home() {
+
+    const [projets, setProjets] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+
+
+    useEffect(() => {
+        if(!loaded){
+            ProjetsApi.getAllProjets()
+                .then(response =>  {
+                    setProjets((response.data));
+                    setLoaded(true);
+                });
+        }
+    }, []);
+
+
+
+
   return (
     <>
         <section className={styles.hero}>
@@ -21,12 +40,11 @@ export default function Home() {
             <h2>Quelques projets</h2>
             <div className="container">
                 <div className={styles['projets-container']}>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {
+                        projets.map(
+                            projet => <Card key={projet.id} projet={projet} />
+                        )
+                    }
                 </div>
             </div>
         </section>
@@ -41,10 +59,10 @@ export default function Home() {
                     </p>
                     <div className={styles['cta-buttons-container']}>
                         <Link href="/projets">
-                            <a className="button button-red" href="#">Les projets</a>
+                            <a className="button button-red">Les projets</a>
                         </Link>
                         <Link href="/cv">
-                            <a className="button button-blue" href="#">Mon CV</a>
+                            <a className="button button-blue">Mon CV</a>
                         </Link>
                     </div>
                 </div>

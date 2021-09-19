@@ -1,8 +1,26 @@
 import Card from "../../components/Card";
 import styles from '../../styles/Projets.module.css';
 import Pagination from "../../components/Pagination";
+import {useEffect, useState} from "react";
+import ProjetsApi from "../../utils/api/ProjetsApi";
 
 const Projets = props => {
+
+    const [projets, setProjets] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        if(!loaded){
+            ProjetsApi.getAllProjets()
+                .then(response =>  {
+                    setProjets((response.data));
+                    setLoaded(true);
+                });
+        }
+    }, []);
+
+
+
 
     return(
         <>
@@ -24,11 +42,11 @@ const Projets = props => {
                 <h2>Mes projets</h2>
                 <div className="container">
                     <div className={styles['projets-container']}>
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
+                        {
+                            projets.map(
+                                projet => <Card key={projet.id} projet={projet} />
+                            )
+                        }
                     </div>
                 </div>
                 <div className="container">
