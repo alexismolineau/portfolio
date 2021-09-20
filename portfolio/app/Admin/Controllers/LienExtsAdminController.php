@@ -50,8 +50,8 @@ class LienExtsAdminController extends AdminController
         $show->field('id', __('ID'));
         $show->field('url', __('Url'));
         $show->field('fa_class', __('Font awesome class'));
-        $show->field('in_footer', __('Dans le footer'))->switch();
-        $show->field('git', __('Lien git'))->switch();
+        $show->field('in_footer', __('Dans le footer'))->using([0 => 'Non', 1 => 'Oui']);
+        $show->field('git', __('Lien git'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 

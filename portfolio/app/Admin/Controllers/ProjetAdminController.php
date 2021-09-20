@@ -28,7 +28,7 @@ class ProjetAdminController extends AdminController
         $grid = new Grid(new Projet());
 
         $grid->column('id', __('ID'))->sortable();
-        $grid->column('titre', __('titre'));
+        $grid->column('titre', __('Titre'));
         $grid->column('display', __('Affiché'))->switch();
         $grid->column('accueil', __('Affiché sur l\'accueil'))->switch();
         $grid->column('created_at', __('Created at'));
@@ -48,11 +48,12 @@ class ProjetAdminController extends AdminController
         $show = new Show(Projet::findOrFail($id));
 
         $show->field('id', __('ID'));
-        $show->field('titre', __('titre'));
-        $show->field('description', __('description'));
+        $show->field('titre', __('Titre'));
+        $show->field('description', __('Description'));
         $show->field('img_path', __('Image'))->image();
-        $show->field('display', __('Affiché'));
-        $show->field('accueil', __('Affiché sur l\'accueil'));
+        $show->field('img_alt', __('Alt'));
+        $show->field('display', __('Affiché'))->using([0 => 'Non', 1 => 'Oui']);
+        $show->field('accueil', __('Affiché sur l\'accueil'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->technos('technos', function($technos){
@@ -85,9 +86,10 @@ class ProjetAdminController extends AdminController
 
 
         $form->display('id', __('ID'));
-        $form->text('titre', __('titre'));
-        $form->textarea('description', __('description'));
-        $form->image('img_path', __('image'))->uniqueName();
+        $form->text('titre', __('Titre'));
+        $form->textarea('description', __('Description'));
+        $form->image('img_path', __('Image'))->uniqueName();
+        $form->text('img_alt', __('Alt'));
         $form->switch('display', __('Affiché'));
         $form->switch('accueil', __('Affiché sur l\'accueil'));
         $form->multipleSelect('technos', 'Technos')->options(Techno::all()->pluck('nom', 'id'));

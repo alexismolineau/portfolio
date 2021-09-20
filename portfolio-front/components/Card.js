@@ -37,7 +37,7 @@ const Card = props => {
                 lien_exts.map(
                     lien => {
                         if(!lien.git){
-                            return <Link href={lien_exts[0].url}>
+                            return <Link href={lien.url} key={lien.id}>
                                 <a className={styles.button + ' button'}>
                                     <span>
                                         Visiter

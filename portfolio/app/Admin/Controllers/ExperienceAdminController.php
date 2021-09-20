@@ -51,8 +51,9 @@ class ExperienceAdminController extends AdminController
         $show->field('poste', __('Poste'));
         $show->field('entreprise', __('Entreprise'));
         $show->field('entreprise_img_path', __('Icone'))->image();
+        $show->field('img_alt', __('Alt'));
         $show->field('description', __('Description'));
-        $show->field('displayed', __('Affichée'))->switch();
+        $show->field('displayed', __('Affichée'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('date_debut', __('Date de début'))->sortable();
         $show->field('date_fin', __('Date de fin'))->sortable();
         $show->field('created_at', __('Created at'));
@@ -75,6 +76,7 @@ class ExperienceAdminController extends AdminController
         $form->text('poste', __('Poste'));
         $form->text('entreprise', __('Entreprise'));
         $form->image('entreprise_img_path', __('Icone'))->uniqueName();
+        $form->text('img_alt', __('Alt'));
         $form->textarea('description', __('Description'));
         $form->switch('displayed', __('Affichée'));
         $form->date('date_debut', __('Date de début'));

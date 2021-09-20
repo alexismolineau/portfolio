@@ -29,6 +29,8 @@ class TechnoAdminController extends AdminController
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('nom', __('Nom'));
+        $grid->column('isFront', __('Front'))->switch();
+        $grid->column('isBack', __('Back'))->switch();
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
 
@@ -48,6 +50,8 @@ class TechnoAdminController extends AdminController
         $show->field('id', __('ID'));
         $show->field('nom', __('Nom'));
         $show->field('fa_class', __('Font Awesome Class'));
+        $show->field('isFront', __('Front'))->using([0 => 'Non', 1 => 'Oui']);
+        $show->field('isBack', __('Back'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->projets('projets', function($projets){
@@ -74,6 +78,8 @@ class TechnoAdminController extends AdminController
         $form->display('id', __('ID'));
         $form->text('nom', __('Nom'));
         $form->text('fa_class', __('Font Awesome Class'));
+        $form->switch('isFront', __('Front'));
+        $form->text('isBack', __('Back'));
         $form->multipleSelect('projets', 'Projets')->options(Projet::all()->pluck('titre', 'id'));
 
         return $form;

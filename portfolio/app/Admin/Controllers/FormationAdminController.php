@@ -51,8 +51,9 @@ class FormationAdminController extends AdminController
         $show->field('nom', __('Nom'));
         $show->field('lieu', __('Lieu'));
         $show->field('formation_img_path', __('Icone'))->image();
+        $show->field('img_alt', __('Icone'));
         $show->field('description', __('Description'));
-        $show->field('displayed', __('Affichée'))->switch();
+        $show->field('displayed', __('Affichée'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('date_debut', __('Date de début'))->sortable();
         $show->field('date_fin', __('Date de fin'))->sortable();
         $show->field('created_at', __('Created at'));
@@ -75,6 +76,7 @@ class FormationAdminController extends AdminController
         $form->text('nom', __('Nom'));
         $form->text('lieu', __('Lieu'));
         $form->image('formation_img_path', __('Icone'))->uniqueName();
+        $form->text('img_alt', __('Alt'));
         $form->textarea('description', __('Description'));
         $form->switch('displayed', __('Affichée'));
         $form->date('date_debut', __('Date de début'));
