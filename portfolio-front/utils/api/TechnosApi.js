@@ -3,7 +3,7 @@ import axios from "axios";
 export default class TechnosApi{
 
     static getAllTechnos(){
-        return axios.get('http://127.0.0.1:8000/api/technos')
+        return axios.get( process.env.NEXT_PUBLIC_API_URL + '/technos')
             .then(response =>  {
                 return response
             })

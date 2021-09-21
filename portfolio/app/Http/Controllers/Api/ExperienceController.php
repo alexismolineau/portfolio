@@ -20,7 +20,14 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        return Experience::all();
+        $experiences = Experience::all();
+        $experiencesToReturn = [];
+        foreach ($experiences as $experience){
+            if($experience->displayed  === 1){
+                $experiencesToReturn[] = $experience;
+            }
+        }
+        return $experiencesToReturn;
     }
 
     /**
@@ -42,7 +49,9 @@ class ExperienceController extends Controller
      */
     public function show(Experience $experience)
     {
-        return $experience;
+        if($experience->displayed === 1){
+            return $experience;
+        }
     }
 
     /**

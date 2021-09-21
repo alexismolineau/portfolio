@@ -6,13 +6,13 @@ ul.projets-pagination{
     margin-bottom: 2rem;
 }
 
-.projets-pagination-item.active a{
+.projets-pagination-item.active button{
     color: var(--text-light);
     background-color: var(--title-dark);
 
 }
 
-.projets-pagination-item a{
+.projets-pagination-item button{
     font-weight: bold;
     border-radius: 0.4rem;
     background-color: var(--text-light);
@@ -22,7 +22,20 @@ ul.projets-pagination{
     color: var(--title-dark);
 }
 
-.projets-pagination-item a:hover{
+.projets-pagination-item button[disabled]{
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    color: var(--text-light);
+}
+.projets-pagination-item button[disabled]:hover{
+    background-color: lightgrey;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+
+.projets-pagination-item button:hover{
     background-color: var(--title-dark);
     color: var(--text-light);
     transition: all 0.3s ease-out;

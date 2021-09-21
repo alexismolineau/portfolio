@@ -15,7 +15,7 @@ class ExperienceAdminController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Liens extérieurs';
+    protected $title = 'Experiences';
 
     /**
      * Make a grid builder.
@@ -30,7 +30,7 @@ class ExperienceAdminController extends AdminController
         $grid->column('poste', __('Poste'));
         $grid->column('entreprise', __('Entreprise'));
         $grid->column('entreprise_img_path', __('Icone'))->image();
-        $grid->column('displayed', __('Affichée'))->switch();
+        $grid->column('displayed', __('Affichée'))->switch()->default(0);
         $grid->column('date_debut', __('Date de début'))->sortable();
         $grid->column('date_fin', __('Date de fin'))->sortable();
 
@@ -78,7 +78,7 @@ class ExperienceAdminController extends AdminController
         $form->image('entreprise_img_path', __('Icone'))->uniqueName();
         $form->text('img_alt', __('Alt'));
         $form->textarea('description', __('Description'));
-        $form->switch('displayed', __('Affichée'));
+        $form->switch('displayed', __('Affichée'))->default(0);
         $form->date('date_debut', __('Date de début'));
         $form->date('date_fin', __('Date de fin'));
 

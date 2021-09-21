@@ -19,8 +19,15 @@ class ProjetController extends Controller
      */
     public function index()
     {
-       return Projet::with(['technos', 'lienExts'])->get();
+        $projets = Projet::with(['technos', 'lienExts'])->get();
+        $projetsToReturn = [];
+        foreach ($projets as $projet){
+            if($projet->display === 1){
+                $projetsToReturn[] = $projet;
+            }
+        }
 
+        return $projetsToReturn;
 
     }
 
@@ -45,7 +52,9 @@ class ProjetController extends Controller
     {
 
         $projet->load(['technos', 'lienExts']);
-        return $projet;
+        if($projet->display === 1){
+            return $projet;
+        }
     }
 
     /**

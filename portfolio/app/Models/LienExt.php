@@ -25,7 +25,7 @@ class LienExt extends Model
      */
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    protected $fillable = ['url', 'fa_class', 'in_footer', 'git'];
+    protected $fillable = ['url', 'fa_class', 'in_footer', 'git', 'texte'];
 
     public function projets()
     {

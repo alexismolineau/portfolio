@@ -1,18 +1,12 @@
 
 X
 (portfolio-front/components/CustomHead.js,f\0\f0269d96535918f5518283bd9a84fdabd6fd408d
-T
-$portfolio-front/components/Footer.js,f\1\f1393e34ed8097f8a1974e95741620091f41dc1a
 F
 templates/projets.html,1\6\165744b01d1779c19a8796923d7284f7ac00bdb7
-\
-,portfolio-front/styles/Pagination.module.css,8\e\8ed261f7d0eeceac0f3a0ffb636f73bc7c363be5
 X
 (portfolio-front/styles/Header.module.css,2\6\2612f72342408e1053e050dea43b0df8efc3e07c
 A
 templates/cv.html,0\5\057cfdaaf61d80a00acd11d6aa0d64a39d634d3a
-X
-(portfolio-front/components/Pagination.js,7\f\7fe11d81db5af54bbcddb2a0778d03809b8789f6
 M
 portfolio-front/pages/_app.js,5\f\5f5df6c831d9f794c793a51cfb10bb40b8d3b6a0
 C

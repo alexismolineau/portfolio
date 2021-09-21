@@ -15,7 +15,7 @@ class MessageAdminController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Liens extérieurs';
+    protected $title = 'Messages';
 
     /**
      * Make a grid builder.

@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import Card from "../components/Card";
 import Link from "next/link";
-import ProjetsApi from "../utils/api/projetsApi";
+import ProjetsApi from "../utils/api/ProjetsApi";
 import {useEffect, useState} from "react";
 
 export default function Home() {
@@ -42,7 +42,11 @@ export default function Home() {
                 <div className={styles['projets-container']}>
                     {
                         projets.map(
-                            projet => <Card key={projet.id} projet={projet} />
+                            projet => {
+                                if(projet.accueil && projet.display){
+                                  return  <Card key={projet.id} projet={projet} />
+                                }
+                            }
                         )
                     }
                 </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 export default class FormationsApi{
 
     static getAllFormations(){
-        return axios.get('http://127.0.0.1:8000/api/formations')
+        return axios.get( process.env.NEXT_PUBLIC_API_URL + '/formations')
             .then(response =>  {
                 return response
             })

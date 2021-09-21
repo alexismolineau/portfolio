@@ -1,25 +1,57 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import styles from '../styles/Pagination.module.css';
+import {parse} from "@fortawesome/fontawesome-svg-core";
 
 const Pagination = props => {
 
+    console.log(props)
+
+    const previous = () => {
+        if(props.offset >= 6){
+            props.updateOffset(props.offset - 6)
+        }
+    }
+
+    const next = () => {
+        if(props.offset + 6 < props.nbProjets){
+            props.updateOffset(props.offset + 6)
+
+        }
+    }
+
+    const pagination = () => {
+        let pageNb = [];
+        for(let i = 0; i < (Math.ceil(props.nbProjets / 6)); i++)
+        {
+            pageNb.push(
+            <li className={`${styles['projets-pagination-item']} ${props.offset === 6*i ? styles.active : ''}`} key={i}>
+                <button onClick={() => props.updateOffset(6 * i)}>{i + 1}</button>
+            </li>
+            )
+
+        }
+        console.log(pageNb)
+        return pageNb
+    }
 
     return(
         <ul className={styles['projets-pagination']}>
-            <li className={styles['projets-pagination-item']}>
-                <a href="">
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </a>
-            </li>
-            <li className={styles['projets-pagination-item']}><a href="">1</a></li>
-            <li className={styles['projets-pagination-item']}><a href="">2</a></li>
-            <li className={styles['projets-pagination-item']}><a href="">3</a></li>
-            <li className={styles['projets-pagination-item']}>
-                <a href="">
-                    <FontAwesomeIcon icon={faChevronRight} />
-                </a>
-            </li>
+            {
+             <li className={styles['projets-pagination-item']}>
+                    <button onClick={() => previous()}  disabled={ props.offset <= 6}>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                </li>
+            }
+            {pagination()}
+            {
+                <li className={styles['projets-pagination-item']}>
+                    <button onClick={() => next()}  disabled={ props.offset + 6 > props.nbProjets}>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                </li>
+            }
         </ul>
     )
 }

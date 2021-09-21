@@ -8,6 +8,8 @@ const Projets = props => {
 
     const [projets, setProjets] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [displayedProjets, setDisplayedProjets] = useState([]);
+    const [offset, setOffset] = useState(0);
 
     useEffect(() => {
         if(!loaded){
@@ -15,10 +17,20 @@ const Projets = props => {
                 .then(response =>  {
                     setProjets((response.data));
                     setLoaded(true);
+                    updateOffset(0);
                 });
         }
-    }, []);
+    }, [projets]);
 
+    const updateOffset = offsetUpdated => {
+        setOffset(offsetUpdated);
+        paginateProjets(offsetUpdated);
+    }
+
+    const paginateProjets = offsetUpdated => {
+        const projetsToDisplay = projets.slice(offsetUpdated, offsetUpdated + 6);
+        setDisplayedProjets(projetsToDisplay);
+    }
 
 
 
@@ -43,14 +55,18 @@ const Projets = props => {
                 <div className="container">
                     <div className={styles['projets-container']}>
                         {
-                            projets.map(
-                                projet => <Card key={projet.id} projet={projet} />
+                            displayedProjets.map(
+                                projet => {
+                                    if(projet.display){
+                                        return <Card key={projet.id} projet={projet} />
+                                    }
+                                }
                             )
                         }
                     </div>
                 </div>
                 <div className="container">
-                    <Pagination />
+                    <Pagination offset={offset} updateOffset={updateOffset} nbProjets={projets.length} />
                 </div>
             </section>
 

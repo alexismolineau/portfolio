@@ -29,7 +29,7 @@ class ProjetAdminController extends AdminController
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('titre', __('Titre'));
-        $grid->column('display', __('Affiché'))->switch();
+        $grid->column('display', __('Affiché'))->switch()->default(0);
         $grid->column('accueil', __('Affiché sur l\'accueil'))->switch();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -66,6 +66,7 @@ class ProjetAdminController extends AdminController
         $show->lienExts('lienExts', function($lienExts){
             $lienExts->resource('/admin/lienExts');
             $lienExts->url();
+            $lienExts->texte();
             $lienExts->in_footer()->switch();
             $lienExts->git()->switch();
             $lienExts->created_at();
@@ -95,9 +96,10 @@ class ProjetAdminController extends AdminController
         $form->multipleSelect('technos', 'Technos')->options(Techno::all()->pluck('nom', 'id'));
         $form->hasMany('lienExts','Liens extérieurs', function (Form\NestedForm $form) {
             $form->url('url', 'url');
+            $form->text('texte', 'Texte')->default('');
             $form->text('fa_class', 'Font Awesome Class');
-            $form->switch('in_footer', 'Dans le footer');
-            $form->switch ('git', 'Lien git ?');
+            $form->switch('in_footer', 'Dans le footer')->default(0);
+            $form->switch ('git', 'Lien git ?')->default(0);
         });
 
         return $form;

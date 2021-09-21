@@ -20,7 +20,14 @@ class FormationController extends Controller
      */
     public function index()
     {
-       return Formation::all();
+        $formations = Formation::all();
+        $formationsToReturn = [];
+        foreach ($formations as $formation){
+            if($formation->displayed  === 1){
+                $formationsToReturn[] = $formation;
+            }
+        }
+        return $formationsToReturn;
     }
 
     /**
@@ -42,7 +49,9 @@ class FormationController extends Controller
      */
     public function show(Formation $formation)
     {
-        return $formation;
+        if($formation->displayed === 1){
+            return $formation;
+        }
     }
 
     /**

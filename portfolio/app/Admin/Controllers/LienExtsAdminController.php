@@ -28,9 +28,10 @@ class LienExtsAdminController extends AdminController
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('url', __('Url'));
+        $grid->column('texte', __('Texte'));
         $grid->column('fa_class', __('Font awesome class'));
-        $grid->column('in_footer', __('Dans le footer'))->switch();
-        $grid->column('git', __('Lien git'))->switch();
+        $grid->column('in_footer', __('Dans le footer'))->switch()->default(0);
+        $grid->column('git', __('Lien git'))->switch()->default(0);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -49,6 +50,7 @@ class LienExtsAdminController extends AdminController
 
         $show->field('id', __('ID'));
         $show->field('url', __('Url'));
+        $show->field('texte', __('Texte'));
         $show->field('fa_class', __('Font awesome class'));
         $show->field('in_footer', __('Dans le footer'))->using([0 => 'Non', 1 => 'Oui']);
         $show->field('git', __('Lien git'))->using([0 => 'Non', 1 => 'Oui']);
@@ -77,9 +79,10 @@ class LienExtsAdminController extends AdminController
 
         $form->display('id', __('ID'));
         $form->text('url', __('Url'));
+        $form->text('texte', __('Texte'))->default('');
         $form->text('fa_class', __('Font Awesome Class'));
-        $form->switch('in_footer', __('Dans le footer'));
-        $form->switch('git', __('Lien git'));
+        $form->switch('in_footer', __('Dans le footer'))->default(0);
+        $form->switch('git', __('Lien git'))->default(0);
 
 
         return $form;

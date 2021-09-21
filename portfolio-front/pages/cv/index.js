@@ -11,27 +11,38 @@ const Cv = props => {
     const [technos, setTechnos] = useState([]);
     const [experiences, setExperiences] = useState([]);
     const [formations, setFormations] = useState([]);
-
+    const [technosFront, setTechnosFront] = useState([]);
+    const [technosBack, setTechnosBack] = useState([]);
 
     useEffect(() => {
         if(technos.length === 0){
             TechnosApi.getAllTechnos()
                 .then(response =>  {
-                    setTechnos((response.data));
+                    setTechnos(response.data);
+                    setTechnosFront(response.data.filter(
+                        techno => techno.isFront
+                    ));
+                    setTechnosBack(response.data.filter(
+                        techno => techno.isBack
+                    ));
                 });
         }
 
         if(experiences.length === 0){
             ExperiencesApi.getAllExperiences()
                 .then(response =>  {
-                    setExperiences((response.data));
+                    setExperiences((response.data.filter(
+                        experience => experience.displayed
+                    )));
                 });
         }
 
         if(formations.length === 0){
             FormationsApi.getAllFormations()
                 .then(response =>  {
-                    setFormations((response.data));
+                    setFormations((response.data.filter(
+                        formation => formation.displayed
+                    )));
                 });
         }
     }, []);
@@ -51,11 +62,11 @@ const Cv = props => {
                         <h2>Compétences</h2>
                         <div className={styles.front}>
                             <h3>Front</h3>
-                            <TechnoList technos={technos}/>
+                            <TechnoList technos={technosFront}/>
                         </div>
                         <div className={styles.back}>
                             <h3>Back</h3>
-                            <TechnoList technos={technos}/>
+                            <TechnoList technos={technosBack}/>
                         </div>
                     </div>
                     <div className={styles['cv-container']}>
