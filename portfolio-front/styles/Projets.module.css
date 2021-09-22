@@ -20,6 +20,19 @@ section.projects{
     row-gap: 4rem;
     margin-bottom: 4rem;
     justify-items: center;
+    transition: all ease-out 0.2s;
+}
+
+.projets-container.transitionIn{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all ease-out 0.2s;
+}
+
+.projets-container.transitionOut{
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all ease-out 0.2s;
 }
 
 @media screen and (max-width: 820px){

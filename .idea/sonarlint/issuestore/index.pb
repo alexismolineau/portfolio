@@ -13,8 +13,6 @@ C
 templates/home.html,8\6\86f3a00c4de0ad1280042b4c75ce3672e5141a0f
 G
 templates/css/style.css,9\8\98b04cb55542c734d0c244912a92c4408a5fb339
-Y
-)portfolio-front/styles/Projets.module.css,9\7\975e7985124e7da4881cf3e61e1a4513ef2a0124
 V
 &portfolio-front/styles/Home.module.css,c\a\ca08959f8170d6be42598499382abea8e22f5c69
 J

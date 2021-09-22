@@ -10,6 +10,8 @@ const Projets = props => {
     const [loaded, setLoaded] = useState(false);
     const [displayedProjets, setDisplayedProjets] = useState([]);
     const [offset, setOffset] = useState(0);
+    const [stepTransition, setStepTransition] = useState(0);
+
 
     useEffect(() => {
         if(!loaded){
@@ -23,13 +25,27 @@ const Projets = props => {
     }, [projets]);
 
     const updateOffset = offsetUpdated => {
+
         setOffset(offsetUpdated);
         paginateProjets(offsetUpdated);
+
+    }
+
+    const slideRight = () => {
+            setStepTransition(1);
+            setTimeout(() => setStepTransition(2), 150);
+            setTimeout(() => setStepTransition(0), 300);
+    }
+
+    const slideLeft = () => {
+        setStepTransition(2);
+        setTimeout(() => setStepTransition(1), 150);
+        setTimeout(() => setStepTransition(0), 300);
     }
 
     const paginateProjets = offsetUpdated => {
         const projetsToDisplay = projets.slice(offsetUpdated, offsetUpdated + 6);
-        setDisplayedProjets(projetsToDisplay);
+        setTimeout(() => setDisplayedProjets(projetsToDisplay), 100)
     }
 
 
@@ -53,7 +69,7 @@ const Projets = props => {
             <section className="projets">
                 <h2>Mes projets</h2>
                 <div className="container">
-                    <div className={styles['projets-container']}>
+                    <div className={`${styles['projets-container']} ${stepTransition === 1 ? styles.transitionIn : ''}  ${stepTransition === 2 ? styles.transitionOut :'' }`}>
                         {
                             displayedProjets.map(
                                 projet => {
@@ -66,7 +82,7 @@ const Projets = props => {
                     </div>
                 </div>
                 <div className="container">
-                    <Pagination offset={offset} updateOffset={updateOffset} nbProjets={projets.length} />
+                    <Pagination offset={offset} updateOffset={updateOffset} nbProjets={projets.length} slideRight={slideRight} slideLeft={slideLeft} />
                 </div>
             </section>
 

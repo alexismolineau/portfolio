@@ -1,22 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import styles from '../styles/Pagination.module.css';
-import {parse} from "@fortawesome/fontawesome-svg-core";
+import {useState} from "react";
 
 const Pagination = props => {
 
-    console.log(props)
+    const [current, setCurrent] = useState(0);
 
     const previous = () => {
         if(props.offset >= 6){
             props.updateOffset(props.offset - 6)
+            props.slideLeft()
         }
     }
 
     const next = () => {
         if(props.offset + 6 < props.nbProjets){
             props.updateOffset(props.offset + 6)
-
+            props.slideRight()
         }
     }
 
@@ -26,12 +27,18 @@ const Pagination = props => {
         {
             pageNb.push(
             <li className={`${styles['projets-pagination-item']} ${props.offset === 6*i ? styles.active : ''}`} key={i}>
-                <button onClick={() => props.updateOffset(6 * i)}>{i + 1}</button>
+                <button onClick={() => {
+                    props.updateOffset(6 * i);
+                    current > i ? props.slideLeft() : props.slideRight();
+                    setCurrent(i);
+                    }
+                }>
+                    {i + 1}
+                </button>
             </li>
             )
 
         }
-        console.log(pageNb)
         return pageNb
     }
 
@@ -39,7 +46,7 @@ const Pagination = props => {
         <ul className={styles['projets-pagination']}>
             {
              <li className={styles['projets-pagination-item']}>
-                    <button onClick={() => previous()}  disabled={ props.offset <= 6}>
+                    <button onClick={() => previous()}  disabled={ props.offset < 6}>
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </button>
                 </li>
