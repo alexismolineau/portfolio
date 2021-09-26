@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowAltCircleRight} from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link'
 import TechnoList from "./TechnoList";
+import * as brands from "@fortawesome/free-brands-svg-icons";
+
 
 const Card = props => {
 
-    const {titre, description, img_path, display, technos, lien_exts} = props.projet;
+    const {id, titre, description, img_path, display, technos, lien_exts} = props.projet;
 
 
     return(
@@ -26,13 +28,29 @@ const Card = props => {
                            width={100}
                            height={50}
                     />
+                    <div className={styles.cardTitleGit}>
                         <h3 className={styles['card-title']}>{titre}</h3>
+                        {lien_exts.length > 0 &&
+                        lien_exts.map(
+                            lien => {
+                                if(lien.git){
+                                    return  <Link href={'https://github.com'} key={id}>
+                                        <a>
+                                            <FontAwesomeIcon icon={brands.faGithub} />
+                                        </a>
+                                    </Link>
+                                }
+                            }
+
+                        )
+                        }
+                    </div>
                 </div>
                 <p className={styles['card-description']}>
                     {description}
                 </p>
             </div>
-            <TechnoList technos={technos} />
+            <TechnoList technos={technos}/>
             {lien_exts.length > 0 &&
                 lien_exts.map(
                     lien => {

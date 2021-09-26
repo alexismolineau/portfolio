@@ -42,7 +42,8 @@ class TechnoController extends Controller
      */
     public function show(Techno $techno)
     {
-        $techno->load('projets');
+
+        $techno->load(['projets.lienExts', 'projets.technos']);
         return $techno;
     }
 

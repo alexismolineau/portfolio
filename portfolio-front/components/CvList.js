@@ -1,5 +1,3 @@
-import * as brands from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styles from '../styles/CvList.module.css';
 import Image from "next/image";
 

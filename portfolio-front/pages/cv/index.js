@@ -13,6 +13,9 @@ const Cv = props => {
     const [formations, setFormations] = useState([]);
     const [technosFront, setTechnosFront] = useState([]);
     const [technosBack, setTechnosBack] = useState([]);
+    const [technosFramework, setTechnosFramework] = useState([]);
+    const [technosCms, setTechnosCms] = useState([]);
+    const [technosBdd, setTechnosBdd] = useState([]);
 
     useEffect(() => {
         if(technos.length === 0){
@@ -24,6 +27,15 @@ const Cv = props => {
                     ));
                     setTechnosBack(response.data.filter(
                         techno => techno.isBack
+                    ));
+                    setTechnosFramework(response.data.filter(
+                        techno => techno.isFramework
+                    ));
+                    setTechnosCms(response.data.filter(
+                        techno => techno.isCMS
+                    ));
+                    setTechnosBdd(response.data.filter(
+                        techno => techno.isBDD
                     ));
                 });
         }
@@ -62,11 +74,25 @@ const Cv = props => {
                         <h2>Compétences</h2>
                         <div className={styles.front}>
                             <h3>Front</h3>
-                            <TechnoList technos={technosFront}/>
+                            <TechnoList technos={technos}/>
                         </div>
                         <div className={styles.back}>
                             <h3>Back</h3>
-                            <TechnoList technos={technosBack}/>
+                            <TechnoList technos={technos}/>
+                        </div>
+                        <div className={styles.framework}>
+                            <h3>Framework</h3>
+                            <TechnoList technos={technos}/>
+                        </div>
+                        <div className={styles.cmsbdd}>
+                            <div className={styles.cms}>
+                                <h3>CMS</h3>
+                                <TechnoList technos={technosCms}/>
+                            </div>
+                            <div className={styles.bdd}>
+                                <h3>Base de données</h3>
+                                <TechnoList technos={technosBdd}/>
+                            </div>
                         </div>
                     </div>
                     <div className={styles['cv-container']}>

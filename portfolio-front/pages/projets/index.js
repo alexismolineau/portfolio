@@ -11,18 +11,31 @@ const Projets = props => {
     const [displayedProjets, setDisplayedProjets] = useState([]);
     const [offset, setOffset] = useState(0);
     const [stepTransition, setStepTransition] = useState(0);
-
+    const [sectionBackground, setSectionBackground] = useState(null);
 
     useEffect(() => {
-        if(!loaded){
-            ProjetsApi.getAllProjets()
-                .then(response =>  {
-                    setProjets((response.data));
-                    setLoaded(true);
-                    updateOffset(0);
-                });
+        if(props.techno && props.techno.bg_img){
+            setSectionBackground(
+                {
+                    backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(' + process.env.NEXT_PUBLIC_API_URL.slice(0, -3) + 'uploads/' + props.techno.bg_img + ')',
+                }
+            )
         }
-    }, [projets]);
+        if(props.projets){
+            setProjets(props.projets);
+            setLoaded(true);
+            updateOffset(0);
+        }else {
+            if(!loaded){
+                ProjetsApi.getAllProjets()
+                    .then(response =>  {
+                        setProjets((response.data));
+                        setLoaded(true);
+                        updateOffset(0);
+                    });
+            }
+        }
+    }, [projets, props.techno]);
 
     const updateOffset = offsetUpdated => {
 
@@ -52,22 +65,33 @@ const Projets = props => {
 
     return(
         <>
-            <section className={styles.hero + ' ' + styles.projects}>
-                <div className="container">
-                    <h1>Contenu random</h1>
-                    <p>Donec condimentum sagittis nunc id pharetra. Phasellus nec libero eros. Proin erat nulla,
-                        interdum a
-                        eleifend dignissim, pretium congue velit. Donec id suscipit purus. Proin fringilla et mi sed
-                        tempor.
-                        Cras placerat dolor lorem, nec molestie ligula feugiat in. Fusce aliquam, arcu ac elementum
-                        tincidunt,
-                        lectus mi interdum risus, non.
+            {
+                !props.techno &&
+                <section className={styles.hero + ' ' + styles.projects}>
+                    <div className="container">
+                        <h1>Contenu random</h1>
+                        <p>Donec condimentum sagittis nunc id pharetra. Phasellus nec libero eros. Proin erat nulla,
+                            interdum a
+                            eleifend dignissim, pretium congue velit. Donec id suscipit purus. Proin fringilla et mi sed
+                            tempor.
+                            Cras placerat dolor lorem, nec molestie ligula feugiat in. Fusce aliquam, arcu ac elementum
+                            tincidunt,
+                            lectus mi interdum risus, non.
 
-                    </p>
-                </div>
-            </section>
+                        </p>
+                    </div>
+                </section>
+            }
+            {
+                props.techno &&
+                <section className={styles.projects} style={sectionBackground}>
+                    <div className="container">
+                        {props.techno ? <h1>{props.techno.nom}</h1> : <h1>Contenu random</h1>}
+                    </div>
+                </section>
+            }
             <section className="projets">
-                <h2>Mes projets</h2>
+                {props.techno ? <h2>Projets {props.techno.nom}</h2> : <h2>Mes projets</h2>}
                 <div className="container">
                     <div className={`${styles['projets-container']} ${stepTransition === 1 ? styles.transitionIn : ''}  ${stepTransition === 2 ? styles.transitionOut :'' }`}>
                         {

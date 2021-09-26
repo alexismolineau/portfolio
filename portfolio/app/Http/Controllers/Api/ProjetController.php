@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Projet;
+use App\Models\Techno;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

@@ -17,6 +17,19 @@
     position: relative;
 }
 
+.card .cardTitleGit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .cardTitleGit svg{
+    color: var(--text-dark);
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
 
 .card-top{
     height: 100%;

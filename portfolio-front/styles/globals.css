@@ -60,7 +60,6 @@ h2:after{
 }
 
 
-
 section{
   position: relative;
   padding-top: 4rem;
@@ -149,6 +148,6 @@ section:nth-child(2n + 1)::before{
 }
 
 .button-blue:hover{
-  background-color: transparent;
+  background-color: var(--text-light);
   color: var(--extras-dark    );
 }

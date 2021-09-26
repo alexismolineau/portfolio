@@ -33,7 +33,9 @@ const Header = props => {
                             </Link>
                         </li>
                         <li className={`${styles['nav-list-item']} + ${router.route === '/contact' && styles.active}`}>
-                            <a href="#" role="menuitem">Contact</a>
+                            <Link href="/contact">
+                                <a role="menuitem">Contact</a>
+                            </Link>
                         </li>
                     </ul>
                     <div className={`${styles['hamburger']} ${displayMenu && styles.active}`} onClick={() => setDisplayMenu(!displayMenu)}>

@@ -1,5 +1,4 @@
 footer.footer{
-    position: relative;
     background-color: var(--background-light);
     color: var(--text-light);
     min-height: 25rem;

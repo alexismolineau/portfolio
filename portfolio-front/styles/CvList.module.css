@@ -113,7 +113,7 @@ ul.cv-list{
 @media screen and (max-width: 560px) {
     .cv-list-item h3{
         font-size: 1.6rem;
-        margin-left: 0;
+        margin-left: -2rem;
         text-align: center;
     }
     .cv-top{

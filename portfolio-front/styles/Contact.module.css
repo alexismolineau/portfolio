@@ -1,0 +1,86 @@
+section.hero{
+    position: relative;
+    color: var(--text-light);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/keyboard.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    margin-bottom: 2rem;
+}
+
+form.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    margin: 0 auto 4rem auto;
+}
+
+div.formgroup{
+    margin-bottom: 2rem;
+}
+
+div.formgroup label{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: bold;
+}
+
+div.formgroup label input,
+div.formgroup label textarea{
+    margin-top: 1rem;
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid var(--title);
+    border-radius: 0.4rem;
+    outline: none;
+    resize: none;
+    min-height: 3.5rem;
+}
+
+div.flash{
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    color: var(--text-light);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: 60rem;
+    font-weight: bold;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.4rem;
+}
+
+div.success{
+    background-color: var(--extras-dark);
+    transition: all ease-out 0.3s;
+}
+
+div.error{
+    background-color: var(--title);
+    transition: all ease-out 0.3s;
+}
+
+div.close{
+    opacity: 0;
+    transition: all ease-out 0.3s;
+}
+
+button.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: transparent;
+    color: var(--text-light);
+    border: 0;
+}
+
+
+
