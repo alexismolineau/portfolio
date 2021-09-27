@@ -1,10 +1,10 @@
 section.hero{
     position: relative;
     color: var(--text-light);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/keyboard.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../public/img/slider.jpeg');
     background-size: cover;
     background-position: center;
-    min-height: 50rem;
+    min-height: 40rem;
     opacity: 1;
     margin-bottom: 2rem;
 }
@@ -24,7 +24,7 @@ section.hero{
 
 .hero p {
     font-weight: 700;
-    text-align: justify;
+    text-align: center;
 }
 
 

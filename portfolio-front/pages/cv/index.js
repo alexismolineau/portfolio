@@ -74,15 +74,15 @@ const Cv = props => {
                         <h2>Compétences</h2>
                         <div className={styles.front}>
                             <h3>Front</h3>
-                            <TechnoList technos={technos}/>
+                            <TechnoList technos={technosFront}/>
                         </div>
                         <div className={styles.back}>
                             <h3>Back</h3>
-                            <TechnoList technos={technos}/>
+                            <TechnoList technos={technosBack}/>
                         </div>
                         <div className={styles.framework}>
                             <h3>Framework</h3>
-                            <TechnoList technos={technos}/>
+                            <TechnoList technos={technosFramework}/>
                         </div>
                         <div className={styles.cmsbdd}>
                             <div className={styles.cms}>

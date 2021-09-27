@@ -5,11 +5,15 @@ import {faArrowAltCircleRight} from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link'
 import TechnoList from "./TechnoList";
 import * as brands from "@fortawesome/free-brands-svg-icons";
+import {useState} from "react";
 
 
 const Card = props => {
 
+    const [hover, setHover] = useState(false);
+
     const {id, titre, description, img_path, display, technos, lien_exts} = props.projet;
+
 
 
     return(
@@ -24,7 +28,7 @@ const Card = props => {
                            objectFit="cover"
                            objectPosition={"center"}
                            quality={100}
-                           className={styles.cardImg}
+                           className={`${styles.cardImg} ${hover ? styles.hover : ''}`}
                            width={100}
                            height={50}
                     />
@@ -34,8 +38,8 @@ const Card = props => {
                         lien_exts.map(
                             lien => {
                                 if(lien.git){
-                                    return  <Link href={'https://github.com'} key={id}>
-                                        <a>
+                                    return  <Link href={lien.url} key={id}>
+                                        <a target={"_blank"}>
                                             <FontAwesomeIcon icon={brands.faGithub} />
                                         </a>
                                     </Link>
@@ -56,7 +60,7 @@ const Card = props => {
                     lien => {
                         if(!lien.git){
                             return <Link href={lien.url} key={lien.id}>
-                                <a className={styles.button + ' button'}>
+                                <a className={styles.button + ' button'} target={"_blank"}  onMouseOver={() => setHover(!hover)} onMouseOut={() => setHover(!hover)}>
                                     <span>
                                         Visiter
                                         <FontAwesomeIcon icon={faArrowAltCircleRight}/>

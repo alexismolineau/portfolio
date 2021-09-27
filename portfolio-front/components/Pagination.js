@@ -54,7 +54,7 @@ const Pagination = props => {
             {pagination()}
             {
                 <li className={styles['projets-pagination-item']}>
-                    <button onClick={() => next()}  disabled={ props.offset + 6 > props.nbProjets}>
+                    <button onClick={() => next()}  disabled={ props.offset + 6 >= props.nbProjets}>
                         <FontAwesomeIcon icon={faChevronRight} />
                     </button>
                 </li>

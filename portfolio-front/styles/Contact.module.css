@@ -1,7 +1,7 @@
 section.hero{
     position: relative;
     color: var(--text-light);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/keyboard.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/contact.jpeg');
     background-size: cover;
     background-position: center;
     opacity: 1;

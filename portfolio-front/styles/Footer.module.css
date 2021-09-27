@@ -11,14 +11,17 @@ footer.footer img{
 
 .footer-nav{
     padding: 3rem 0 6rem 0;
+    /*
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    */
     justify-items: left;
     row-gap: 3rem;
 }
 
 ul.footer-nav-list{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 2rem;
     flex-direction: column;
     justify-content: space-between;

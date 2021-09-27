@@ -69,14 +69,9 @@ const Projets = props => {
                 !props.techno &&
                 <section className={styles.hero + ' ' + styles.projects}>
                     <div className="container">
-                        <h1>Contenu random</h1>
-                        <p>Donec condimentum sagittis nunc id pharetra. Phasellus nec libero eros. Proin erat nulla,
-                            interdum a
-                            eleifend dignissim, pretium congue velit. Donec id suscipit purus. Proin fringilla et mi sed
-                            tempor.
-                            Cras placerat dolor lorem, nec molestie ligula feugiat in. Fusce aliquam, arcu ac elementum
-                            tincidunt,
-                            lectus mi interdum risus, non.
+                        <h1>Projets</h1>
+                        <p>
+                            Retrouvez ci-dessous certains de mes projets web développés dans un contexte personnel et/ou professionnel.
 
                         </p>
                     </div>
@@ -86,7 +81,7 @@ const Projets = props => {
                 props.techno &&
                 <section className={styles.projects} style={sectionBackground}>
                     <div className="container">
-                        {props.techno ? <h1>{props.techno.nom}</h1> : <h1>Contenu random</h1>}
+                        {props.techno ? <h1>{props.techno.nom}</h1> : <h1>Mes projets</h1>}
                     </div>
                 </section>
             }
@@ -102,6 +97,10 @@ const Projets = props => {
                                     }
                                 }
                             )
+                        }
+                        {
+                            projets.length === 0 &&
+                            <div>Aucun projet à afficher</div>
                         }
                     </div>
                 </div>

@@ -1,5 +1,10 @@
 section.cv-title {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/projets.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/cv.jpeg');
+    color: var(--text-light);
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    margin-bottom: 2rem;
 }
 
 section.cv-content h2 {

@@ -1,18 +1,21 @@
 section.hero{
     position: relative;
     color: var(--text-light);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/keyboard.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 50rem;
     opacity: 1;
     margin-bottom: 2rem;
+}
+
+.hero p {
+    font-weight: 700;
+    text-align: center;
 }
 
 section.projects{
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/projets.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/projets.jpeg');
 }
 
 .projets-container{
@@ -36,6 +39,7 @@ section.projects{
     opacity: 0;
     transition: all ease-out 0.2s;
 }
+
 
 @media screen and (max-width: 820px){
     .projets-container{

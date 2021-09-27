@@ -27,12 +27,10 @@ export default function Home() {
     <>
         <section className={styles.hero}>
             <div className="container">
-              <h1>Contenu random</h1>
-              <p>Donec condimentum sagittis nunc id pharetra. Phasellus nec libero eros. Proin erat nulla, interdum a
-                eleifend dignissim, pretium congue velit. Donec id suscipit purus. Proin fringilla et mi sed tempor.
-                Cras placerat dolor lorem, nec molestie ligula feugiat in. Fusce aliquam, arcu ac elementum tincidunt,
-                lectus mi interdum risus, non.
-
+              <h1>Bienvenue sur mon portfolio</h1>
+              <p>
+                  Développeur web depuis 2 ans, ma curiosité me pousse à essayer de nouveaux langages/framework continuellement.<br/>
+                  Actuellement développeur Java/Angular pour MGEN Technologies.
               </p>
             </div>
         </section>
