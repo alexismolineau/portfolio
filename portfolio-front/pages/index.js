@@ -4,6 +4,10 @@ import Link from "next/link";
 import ProjetsApi from "../utils/api/ProjetsApi";
 import {useEffect, useState} from "react";
 
+Home.title = 'Accueil';
+Home.meta = 'Alexis Molineau - Bienvenue sur mon portfolio';
+
+
 export default function Home() {
 
     const [projets, setProjets] = useState([]);

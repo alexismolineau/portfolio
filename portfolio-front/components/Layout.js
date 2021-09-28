@@ -2,10 +2,10 @@ import Header from "./Header";
 import CustomHead from "./CustomHead";
 import Footer from "./Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, Component }) {
     return (
         <>
-            <CustomHead />
+            <CustomHead Component={Component}/>
             <Header />
             <main>{children}</main>
             <Footer />

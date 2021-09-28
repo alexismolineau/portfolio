@@ -30,7 +30,7 @@ const Footer = props => {
                             lienExts.map(
                                 lien => {
                                    return <li className={styles['footer-nav-item']} key={lien.id}>
-                                        <a href={lien.url} role="menuitem" target={"_blank"}>
+                                        <a href={lien.url} role="menuitem" target={"_blank"}  rel={"noreferrer"}>
                                             <FontAwesomeIcon icon={brands[lien.fa_class]}/>
                                             {lien.texte}
                                         </a>

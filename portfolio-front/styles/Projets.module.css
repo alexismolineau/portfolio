@@ -18,6 +18,12 @@ section.projects{
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/projets.jpeg');
 }
 
+section.technos{
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../public/img/techno.jpeg');
+}
+
 .projets-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));

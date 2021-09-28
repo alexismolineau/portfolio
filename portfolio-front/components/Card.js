@@ -39,7 +39,7 @@ const Card = props => {
                             lien => {
                                 if(lien.git){
                                     return  <Link href={lien.url} key={id}>
-                                        <a target={"_blank"}>
+                                        <a target={"_blank"}  rel={"noreferrer"}>
                                             <FontAwesomeIcon icon={brands.faGithub} />
                                         </a>
                                     </Link>
@@ -60,7 +60,7 @@ const Card = props => {
                     lien => {
                         if(!lien.git){
                             return <Link href={lien.url} key={lien.id}>
-                                <a className={styles.button + ' button'} target={"_blank"}  onMouseOver={() => setHover(!hover)} onMouseOut={() => setHover(!hover)}>
+                                <a className={styles.button + ' button'} target={"_blank"} rel={"noreferrer"} onMouseOver={() => setHover(!hover)} onMouseOut={() => setHover(!hover)}>
                                     <span>
                                         Visiter
                                         <FontAwesomeIcon icon={faArrowAltCircleRight}/>

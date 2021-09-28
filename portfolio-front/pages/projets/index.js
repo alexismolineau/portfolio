@@ -13,6 +13,8 @@ const Projets = props => {
     const [stepTransition, setStepTransition] = useState(0);
     const [sectionBackground, setSectionBackground] = useState(null);
 
+    const title = 'titre';
+
     useEffect(() => {
         if(props.techno && props.techno.bg_img){
             setSectionBackground(
@@ -79,7 +81,7 @@ const Projets = props => {
             }
             {
                 props.techno &&
-                <section className={styles.projects} style={sectionBackground}>
+                <section className={styles.technos} >
                     <div className="container">
                         {props.techno ? <h1>{props.techno.nom}</h1> : <h1>Mes projets</h1>}
                     </div>
@@ -115,5 +117,8 @@ const Projets = props => {
     )
 
 }
+
+Projets.title = 'Projets';
+Projets.meta = 'Retrouvez quelques projets réalisés par mes soins.';
 
 export default Projets

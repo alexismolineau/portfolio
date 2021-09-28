@@ -8,7 +8,7 @@ config.autoAddCss = false
 
 function MyApp({ Component, pageProps }) {
   return (
-      <Layout>
+      <Layout Component={Component}>
         <Component {...pageProps} />
       </Layout>
   )

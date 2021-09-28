@@ -111,4 +111,7 @@ const Cv = props => {
     )
 }
 
+Cv.title = 'CV';
+Cv.meta = 'Voici mon CV. Retrouvez mes formations, expériences et compétences.';
+
 export default Cv;

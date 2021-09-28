@@ -80,7 +80,7 @@ const Contact = props => {
                         </label>
                     </div>
                     <div className={styles.formgroup}>
-                        <label htmlFor={"objet"}>L'objet de votre message :
+                        <label htmlFor={"objet"}>L&apos;objet de votre message :
                             <input type={"text"} id={"objet"} name={"objet"} value={objet} onChange={event => setObjet(event.target.value)}  required/>
                         </label>
                     </div>
@@ -100,5 +100,8 @@ const Contact = props => {
         </>
     )
 }
+
+Contact.title = 'Contact';
+Contact.meta = 'Contactez-moi sur cette page.'
 
 export default Contact;

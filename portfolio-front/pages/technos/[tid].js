@@ -3,6 +3,8 @@ import TechnosApi from "../../utils/api/TechnosApi";
 import {useEffect, useState} from "react";
 import Projets from "../projets";
 
+
+
 const Technos = () => {
     const router = useRouter();
     const { tid } = router.query;
@@ -48,6 +50,7 @@ Technos.getInitialProps = async (c) => {
     };
 };
 
-
+Technos.title = 'Techno';
+Technos.meta = 'Retrouvez les projets réalisés avec cette technologie';
 
 export default Technos;
