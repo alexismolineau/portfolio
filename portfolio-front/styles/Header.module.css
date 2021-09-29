@@ -38,7 +38,6 @@ ul.nav-list{
 
 li.nav-list-item{
     position: relative;
-    padding: 1rem 0 1rem 0;
     border-top-left-radius: 0.4rem ;
     border-top-right-radius: 0.4rem ;
 }
@@ -89,7 +88,8 @@ li.nav-list-item:hover::after{
 }
 
 li.nav-list-item > a{
-    padding: 1rem 2rem;
+    display: block;
+    padding: 1.5rem 2.5rem;
     font-weight: bold;
 }
 

@@ -5,26 +5,27 @@ import Projets from "../projets";
 
 
 
-const Technos = () => {
+const Technos = props => {
     const router = useRouter();
     const { tid } = router.query;
+    const [oldRoute, setOldRoute] = useState('0');
     const [techno,setTechno] = useState(null);
-
-
-
 
     useEffect(
         () => {
-            if(!techno){
-                TechnosApi.getTechnoById(tid)
+            if(tid !== oldRoute){
+                TechnosApi.getTechnoById(tid, props.http)
                     .then(
-                        response => setTechno(response.data)
+                        response => {
+                            setTechno(response.data);
+                            setOldRoute(tid);
+                        }
                     ).catch(
                         error => console.log(error)
                 )
             }
-        } , [router.isReady, techno, tid]
-    )
+        } , [router.query.tid]
+    );
 
 
 
@@ -35,19 +36,6 @@ const Technos = () => {
     )
 }
 
-Technos.getInitialProps = async (c) => {
-
-    const tech = await TechnosApi.getTechnoById(c.query.tid)
-        .then(resp => {
-            return resp.data
-        });
-
-    return {
-        id: String(c.query.tid),
-        key: String(c.query.tid),
-        technos: tech
-    };
-};
 
 Technos.title = 'Techno';
 Technos.meta = 'Retrouvez les projets réalisés avec cette technologie';

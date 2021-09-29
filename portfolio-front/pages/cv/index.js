@@ -19,7 +19,7 @@ const Cv = props => {
 
     useEffect(() => {
         if(technos.length === 0){
-            TechnosApi.getAllTechnos()
+            TechnosApi.getAllTechnos(props.http)
                 .then(response =>  {
                     setTechnos(response.data);
                     setTechnosFront(response.data.filter(
@@ -41,7 +41,7 @@ const Cv = props => {
         }
 
         if(experiences.length === 0){
-            ExperiencesApi.getAllExperiences()
+            ExperiencesApi.getAllExperiences(props.http)
                 .then(response =>  {
                     setExperiences((response.data.filter(
                         experience => experience.displayed
@@ -50,7 +50,7 @@ const Cv = props => {
         }
 
         if(formations.length === 0){
-            FormationsApi.getAllFormations()
+            FormationsApi.getAllFormations(props.http)
                 .then(response =>  {
                     setFormations((response.data.filter(
                         formation => formation.displayed

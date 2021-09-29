@@ -29,7 +29,7 @@ const Projets = props => {
             updateOffset(0);
         }else {
             if(!loaded){
-                ProjetsApi.getAllProjets()
+                ProjetsApi.getAllProjets(props.http)
                     .then(response =>  {
                         setProjets((response.data));
                         setLoaded(true);

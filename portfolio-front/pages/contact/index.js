@@ -12,8 +12,6 @@ const Contact = props => {
     //honeypot
     const [h, setH] = useState('');
 
-
-
     const validateForm = event => {
         event.preventDefault();
         const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -39,7 +37,7 @@ const Contact = props => {
             return;
         }
 
-        MessagesApi.postMessage({email: email, objet: objet, message: message})
+        MessagesApi.postMessage({email: email, objet: objet, message: message}, props.http)
             .then(
                 resp => {
                     if(resp.status === 201){

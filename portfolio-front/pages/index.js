@@ -8,7 +8,7 @@ Home.title = 'Accueil';
 Home.meta = 'Alexis Molineau - Bienvenue sur mon portfolio';
 
 
-export default function Home() {
+export default function Home(props) {
 
     const [projets, setProjets] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -16,7 +16,7 @@ export default function Home() {
 
     useEffect(() => {
         if(!loaded){
-            ProjetsApi.getAllProjets()
+            ProjetsApi.getAllProjets(props.http)
                 .then(response =>  {
                     setProjets((response.data));
                     setLoaded(true);
