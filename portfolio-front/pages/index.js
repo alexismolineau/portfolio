@@ -58,9 +58,7 @@ export default function Home() {
             <h2>En savoir plus</h2>
             <div className="container">
                 <div className={styles.cta}>
-                    <p>Nunc luctus ornare tellus, non facilisis enim. Integer quis quam non nisi mollis pharetra eu nec
-                        arcu. Vivamus scelerisque vehicula lacus eu pellentesque. Nam at nulla sit amet felis
-                        sollicitudin interdum. Aenean eleifend non leo.
+                    <p>Pour en savoir plus sur moi, vous pouvez découvrir mes autres projets ou encore mon CV.
 
                     </p>
                     <div className={styles['cta-buttons-container']}>

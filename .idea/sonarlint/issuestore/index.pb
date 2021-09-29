@@ -1,6 +1,4 @@
 
-X
-(portfolio-front/components/CustomHead.js,f\0\f0269d96535918f5518283bd9a84fdabd6fd408d
 F
 templates/projets.html,1\6\165744b01d1779c19a8796923d7284f7ac00bdb7
 X

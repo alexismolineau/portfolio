@@ -42,7 +42,6 @@ Technos.getInitialProps = async (c) => {
             return resp.data
         });
 
-    console.log(tech)
     return {
         id: String(c.query.tid),
         key: String(c.query.tid),

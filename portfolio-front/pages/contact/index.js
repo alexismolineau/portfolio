@@ -9,6 +9,9 @@ const Contact = props => {
     const [message, setMessage] = useState('');
     const [response, setResponse] = useState(null);
     const [statut, setStatut] = useState(null);
+    //honeypot
+    const [h, setH] = useState('');
+
 
 
     const validateForm = event => {
@@ -23,12 +26,16 @@ const Contact = props => {
         if(objet.length < 5 || objet.length > 400){
             setStatut('error');
             setResponse('Merci de renter un objet entre 5 et 400 caractères');
-            return;x
+            return;
         }
 
         if(message.length < 5 || message.length > 4000){
             setStatut('error');
             setResponse('Merci de renter un message entre 5 et 4000 caractères');
+            return;
+        }
+
+        if(h !== ''){
             return;
         }
 
@@ -74,6 +81,14 @@ const Contact = props => {
                     }
                 </div>
                 <form className={styles.form} onSubmit={event => validateForm(event)}>
+                    <div className={styles.h}>
+                        <label htmlFor="emailh">Email</label>
+                        <input id="emailh" name="emailh" type="emailh" autoComplete="off" value={h} onChange={event => setH(event.target.value)} />
+                    </div>
+                    <div className={styles.h}>
+                        <label htmlFor="messageh">Message</label>
+                        <textarea id="messageh" name="messageh" autoComplete="off" value={h} onChange={event => setH(event.target.value)}/>
+                    </div>
                     <div className={styles.formgroup}>
                         <label htmlFor={"email"}>Votre adresse email :
                             <input type={"email"} id={"email"} name={"email"} value={email} onChange={event => setEmail(event.target.value)} required/>
@@ -102,6 +117,6 @@ const Contact = props => {
 }
 
 Contact.title = 'Contact';
-Contact.meta = 'Contactez-moi sur cette page.'
+Contact.meta = 'Envoyez moi un mot doux.'
 
 export default Contact;

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "next export"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,7 +18,8 @@
     "next": "11.1.2",
     "next-compose-plugins": "^2.2.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-google-recaptcha": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
